@@ -1,0 +1,36 @@
+
+<div class="w-full md:w-1/2 sm:w-3/4 rounded shadow-2xl bg-white p-5 text-2xl">
+  <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
+    <div class="flex flex-row items-center w-full">
+      <h2 class="">Tankbeurt toevoegen</h2>        
+    </div>
+  <div class="grid grid-cols-2 mb-3 gap-2">
+        <label for="liters">Aantal liters:</label>
+        <input class="border-solid border-slate-300 border-2 w-full rounded-lg py-0.5 px-2 text-black form-control"
+          type="text" id="amountLiters" name="amountLiters" ngModel required #amountLiters="ngModel">
+
+        <div class="text-red-500" *ngIf="!amountLiters.valid && amountLiters.touched">Vul het aantal liters in.<br></div>
+
+        <label for="kmters">Km stand auto: </label>
+        <input class="border-solid border-slate-300 border-2 w-full rouned-lg py-0.5 text-black form-control"
+        type="text" id="kmters" name="totKms" ngModel required #totKms="ngModel">
+
+        <div class="text-red-500" *ngIf="!totKms.valid && totKms.touched">Vul de kilometerstand in<br></div>
+      
+        <label for="prijs">Bedrag:</label>
+        <input class="border-solid border-slate-300 border-2 w-full rouned-lg py-0.5 text-black form-control" 
+        type="text" id="prijs" name="totPrice" ngModel required #totPrice="ngModel">
+
+        <div class="text-red-500" *ngIf="!totPrice.valid && totPrice.touched">Vul de kilometerstand in<br></div>
+
+  </div>
+    
+    <div class="float-left m-2 pt-5">
+      <button [disabled]="!f.valid" class="p-1.5 px-5 uppercase text-lg font-medium tracking-wider text-white bg-blue-400 rounded-lg hover:underline"
+      type="submit">Voeg toe</button>
+    </div>
+    <button class="p-1.5 px-5 text-lg uppercase font-medium tracking-wider text-black-600 hover:underline hover:cursor-pointer bg-red-400 rounded-lg"
+    (click)="onCancel()">Back</button>
+  </form>
+    
+</div>

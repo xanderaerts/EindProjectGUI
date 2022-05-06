@@ -1,6 +1,12 @@
-# Angular GUI
-
 # EindProjectGUI2022
+## Angular GUI
+
+Een website om je tankbeurten bij te houden! 
+Wie wil dat nu niet?! 
+Run de app en geniet er van!
+
+
+# How to install? 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
