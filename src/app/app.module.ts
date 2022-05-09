@@ -7,10 +7,13 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AddTankbeurtFormComponent } from './add-tankbeurt-form/add-tankbeurt-form.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { TankBeurtListComponent } from './tank-beurt-list/tank-beurt-list.component'
 
 const routes:Routes=[
   {path:'',component:HomepageComponent},
-  {path:'addForm',component:AddTankbeurtFormComponent}
+  {path:'addForm',component:AddTankbeurtFormComponent},
+  {path:'overview',component:TankBeurtListComponent}
 ]
 
 @NgModule({
@@ -18,12 +21,14 @@ const routes:Routes=[
     AppComponent,
     HomepageComponent,
     MainMenuComponent,
-    AddTankbeurtFormComponent
+    AddTankbeurtFormComponent,
+    TankBeurtListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)    
+    RouterModule.forRoot(routes),
+    HttpClientModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

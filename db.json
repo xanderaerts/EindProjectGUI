@@ -1,0 +1,8 @@
+{
+    "tankbeurten":[
+        {"id":1,"date":"1/1/1 14:44","totLiters":70,"totPrice":100,"kmStand":120000},
+        {"id":2,"date":"1/1/1 14:55","totLiters":70,"totPrice":100,"kmStand":120800},
+        {"id":3,"date":"1/1/1 14:55","totLiters":70,"totPrice":100,"kmStand":121600},
+        {"id":4,"date":"1/1/1 14:55","totLiters":70,"totPrice":100,"kmStand":122400}
+    ]
+}
