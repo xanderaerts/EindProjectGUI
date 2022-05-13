@@ -1,38 +1,38 @@
 <div class="flex w-screen justify-center items-center">
-  <div class="w-1/2 rounded shadow-2xl bg-white p-5 text-2xl grid place-items-center">
-    
+<div class="w-1/2 rounded shadow-2xl flex flex-col justify-center items-center   bg-white p-5 text-2xl">
+  
     <div class="font-bold text-3xl">
-      <h2 class="">Tankbeurt toevoegen</h2>        
+      <h2 class="">Tankbeurt bewerken</h2>        
     </div>
-
+  
     <div class=" w-1/2 grid place-items-center">
     <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
           <label for="liters">Aantal liters:</label>
           <input class="border-solid border-slate-300 border-2 w-full rounded-lg py-0.5 px-2 text-black form-control"
-            type="text" id="amountLiters" name="amountLiters" ngModel required #amountLiters="ngModel"  >
-
+            type="text" id="amountLiters" name="amountLiters" ngModel required #amountLiters="ngModel" [(ngModel)]="currentTankbeurt.totLiters" >
+  
           <div class="text-red-500" *ngIf="!amountLiters.valid && amountLiters.touched">Vul het aantal liters in.<br></div>
-
+  
           <label for="kmters">Km stand auto: </label>
           <input class="border-solid border-slate-300 border-2 w-full rouned-lg py-0.5 text-black form-control"
-          type="text" id="kmters" name="totKms" ngModel required #totKms="ngModel" >
-
+          type="text" id="kmters" name="totKms" ngModel required #totKms="ngModel" [(ngModel)]="currentTankbeurt.kmStand">
+  
           <div class="text-red-500" *ngIf="!totKms.valid && totKms.touched">Vul de kilometerstand in<br></div>
         
           <label for="prijs">Bedrag:</label>
           <input class="border-solid border-slate-300 border-2 w-full rouned-lg py-0.5 text-black form-control" 
-          type="text" id="prijs" name="totPrice" ngModel required #totPrice="ngModel">
-
+          type="text" id="prijs" name="totPrice" ngModel required #totPrice="ngModel" [(ngModel)]="currentTankbeurt.totPrice">
+  
           <div class="text-red-500" *ngIf="!totPrice.valid && totPrice.touched">Vul de kilometerstand in<br></div>
-
+  
           
         <div class="m-2 pt-5 flex justify-around">
           <button [disabled]="!f.valid" class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
-          type="submit">Voeg toe</button>
-
+          type="submit">Bewerk</button>
+  
           <button class="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-          (click)="onReset()">Reset</button>
-
+          (click)="onCancel()">Terug</button>
+  
       </div>
     </form>
   </div>

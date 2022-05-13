@@ -1,0 +1,15 @@
+"filename", "language", "JSON", "TypeScript", "HTML", "CSS", "comment", "blank", "total"
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/db.json", "JSON", 31, 0, 0, 0, 0, 0, 31
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/add-tankbeurt-form/add-tankbeurt-form.component.html", "HTML", 0, 0, 2, 0, 0, -1, 1
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/add-tankbeurt-form/add-tankbeurt-form.component.ts", "TypeScript", 0, 13, 0, 0, 4, 2, 19
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/app.module.ts", "TypeScript", 0, 3, 0, 0, 0, 1, 4
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/edit-tankbeurt-form/edit-tankbeurt-form.component.html", "HTML", 0, 0, 2, 0, 0, 0, 2
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/edit-tankbeurt-form/edit-tankbeurt-form.component.ts", "TypeScript", 0, 14, 0, 0, 0, 2, 16
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/services/tank-beurten.service.ts", "TypeScript", 0, 11, 0, 0, 0, 3, 14
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tank-beurt-list/tank-beurt-list.component.html", "HTML", 0, 0, -2, 0, -2, 0, -4
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.css", "CSS", 0, 0, 0, 0, 0, 1, 1
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.html", "HTML", 0, 0, 0, 0, 0, 1, 1
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.spec.ts", "TypeScript", 0, 20, 0, 0, 0, 6, 26
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.ts", "TypeScript", 0, 11, 0, 0, 0, 5, 16
+"/home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt.model.ts", "TypeScript", 0, 5, 0, 0, 1, 0, 6
+"Total", "-", 31, 77, 2, 0, 3, 20, 133

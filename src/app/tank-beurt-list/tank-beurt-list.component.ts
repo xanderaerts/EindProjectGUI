@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tankBeurt } from '../tankbeurt.model';
 import { TankBeurtenService } from '../services/tank-beurten.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tank-beurt-list',
@@ -10,30 +11,35 @@ import { TankBeurtenService } from '../services/tank-beurten.service';
 })
 export class TankBeurtListComponent implements OnInit {
 
+
+  tankbeurten : tankBeurt[] = [];
+
   constructor(public tankBeurtService : TankBeurtenService) {}
 
-
-  onEditClick(id : number){
-    console.log("editing", id);
-  }
-
   onDeleteClick(id: number){
-    console.log("deleting",id);
+
+    if(confirm("Zeker dat je deze tankbeurt wilt verwijderen?")){
+      this.tankBeurtService.deleteTankbeurt(id).subscribe(
+        (res : any)=>{
+          this.getTankbeurten();
+        }
+      )
+    }
   }
 
   calcAvg(id : number) : number{
 
     var prevKmTot,km,liters = 0;
-    var currentKmTot = this.tankBeurtService.tankbeurten[id].kmStand;
+    var currentKmTot = this.tankbeurten[id].kmStand;
 
     if(id <= 0){
-      prevKmTot = this.tankBeurtService.tankbeurten[id].kmStand;
-      km = this.tankBeurtService.tankbeurten[id].kmStand;
+      prevKmTot = this.tankbeurten[id].kmStand;
+      km = this.tankbeurten[id].kmStand;
       console.log("km",km);
     }
     else{
-      liters = this.tankBeurtService.tankbeurten[id].totLiters;
-      prevKmTot = this.tankBeurtService.tankbeurten[id-1].kmStand;    
+      liters = this.tankbeurten[id].totLiters;
+      prevKmTot = this.tankbeurten[id-1].kmStand;    
       km = currentKmTot - prevKmTot;
     }
 
@@ -51,16 +57,23 @@ export class TankBeurtListComponent implements OnInit {
       return 0;
     }
     
-    var curKm = this.tankBeurtService.tankbeurten[id].kmStand;
-    var prevKm = this.tankBeurtService.tankbeurten[id-1].kmStand;
+    var curKm = this.tankbeurten[id].kmStand;
+    var prevKm = this.tankbeurten[id-1].kmStand;
 
     return curKm - prevKm;
   }
 
-
-
-
-  ngOnInit(): void {
+  getTankbeurten(){
+    this.tankBeurtService.getList().subscribe(
+      (response : tankBeurt[]) => {
+        this.tankbeurten = response;
+      },
+      (error) => console.log("error:",error),
+      () => console.log("ready")
+    );
   }
 
+  ngOnInit(): void {
+    this.getTankbeurten();
+  }
 }

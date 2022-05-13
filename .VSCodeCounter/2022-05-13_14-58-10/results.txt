@@ -1,0 +1,89 @@
+Date : 2022-05-13 14:58:10
+Directory : /home/xander/Documents/EICT/GUI/EindProjectGUI_2022
+Total : 49 files,  21714 codes, 77 comments, 208 blanks, all 21999 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          6 |     21,003 |          2 |          5 |     21,010 |
+| TypeScript         |         23 |        455 |         68 |        143 |        666 |
+| HTML               |          8 |        157 |          0 |         33 |        190 |
+| JavaScript         |          2 |         46 |          6 |          2 |         54 |
+| JSON with Comments |          1 |         31 |          1 |          1 |         33 |
+| Markdown           |          1 |         19 |          0 |         17 |         36 |
+| CSS                |          8 |          3 |          0 |          7 |         10 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                  | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                     |         49 |     21,714 |         77 |        208 |     21,999 |
+| src                                                                                                                   |         39 |        615 |         68 |        183 |        866 |
+| src/app                                                                                                               |         32 |        565 |          6 |        163 |        734 |
+| src/app/add-tankbeurt-form                                                                                            |          4 |         84 |          4 |         32 |        120 |
+| src/app/edit-tankbeurt-form                                                                                           |          4 |         91 |          0 |         31 |        122 |
+| src/app/homepage                                                                                                      |          4 |         42 |          0 |         13 |         55 |
+| src/app/main-menu                                                                                                     |          4 |         54 |          0 |         14 |         68 |
+| src/app/services                                                                                                      |          2 |         43 |          1 |         16 |         60 |
+| src/app/tank-beurt-list                                                                                               |          4 |        129 |          0 |         30 |        159 |
+| src/app/tankbeurt-list-item                                                                                           |          4 |         31 |          0 |         13 |         44 |
+| src/environments                                                                                                      |          2 |          6 |         11 |          4 |         21 |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                              | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/angular.json                                                      | JSON               |        106 |          0 |          1 |        107 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/db.json                                                           | JSON               |         39 |          0 |          0 |         39 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/karma.conf.js                                                     | JavaScript         |         37 |          6 |          2 |         45 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/package-lock.json                                                 | JSON               |     20,785 |          0 |          1 |     20,786 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/package.json                                                      | JSON               |         42 |          0 |          1 |         43 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/readme.md                                                         | Markdown           |         19 |          0 |         17 |         36 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/add-tankbeurt-form/add-tankbeurt-form.component.css       | CSS                |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/add-tankbeurt-form/add-tankbeurt-form.component.html      | HTML               |         29 |          0 |         12 |         41 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/add-tankbeurt-form/add-tankbeurt-form.component.spec.ts   | TypeScript         |         20 |          0 |          6 |         26 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/add-tankbeurt-form/add-tankbeurt-form.component.ts        | TypeScript         |         35 |          4 |         13 |         52 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/app.component.css                                         | CSS                |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/app.component.html                                        | HTML               |          2 |          0 |          0 |          2 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/app.component.spec.ts                                     | TypeScript         |         27 |          0 |          5 |         32 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/app.component.ts                                          | TypeScript         |          9 |          0 |          2 |         11 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/app.module.ts                                             | TypeScript         |         39 |          0 |          5 |         44 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/edit-tankbeurt-form/edit-tankbeurt-form.component.css     | CSS                |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/edit-tankbeurt-form/edit-tankbeurt-form.component.html    | HTML               |         29 |          0 |         12 |         41 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/edit-tankbeurt-form/edit-tankbeurt-form.component.spec.ts | TypeScript         |         20 |          0 |          6 |         26 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/edit-tankbeurt-form/edit-tankbeurt-form.component.ts      | TypeScript         |         42 |          0 |         12 |         54 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/homepage/homepage.component.css                           | CSS                |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/homepage/homepage.component.html                          | HTML               |         11 |          0 |          1 |         12 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/homepage/homepage.component.spec.ts                       | TypeScript         |         20 |          0 |          6 |         26 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/homepage/homepage.component.ts                            | TypeScript         |         11 |          0 |          5 |         16 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/main-menu/main-menu.component.css                         | CSS                |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/main-menu/main-menu.component.html                        | HTML               |         23 |          0 |          2 |         25 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/main-menu/main-menu.component.spec.ts                     | TypeScript         |         20 |          0 |          6 |         26 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/main-menu/main-menu.component.ts                          | TypeScript         |         11 |          0 |          5 |         16 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/services/tank-beurten.service.spec.ts                     | TypeScript         |         12 |          0 |          5 |         17 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/services/tank-beurten.service.ts                          | TypeScript         |         31 |          1 |         11 |         43 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tank-beurt-list/tank-beurt-list.component.css             | CSS                |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tank-beurt-list/tank-beurt-list.component.html            | HTML               |         50 |          0 |          4 |         54 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tank-beurt-list/tank-beurt-list.component.spec.ts         | TypeScript         |         20 |          0 |          6 |         26 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tank-beurt-list/tank-beurt-list.component.ts              | TypeScript         |         59 |          0 |         19 |         78 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.css     | CSS                |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.html    | HTML               |          0 |          0 |          1 |          1 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.spec.ts | TypeScript         |         20 |          0 |          6 |         26 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt-list-item/tankbeurt-list-item.component.ts      | TypeScript         |         11 |          0 |          5 |         16 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/app/tankbeurt.model.ts                                        | TypeScript         |         14 |          1 |          1 |         16 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/environments/environment.prod.ts                              | TypeScript         |          3 |          0 |          1 |          4 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/environments/environment.ts                                   | TypeScript         |          3 |         11 |          3 |         17 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/index.html                                                    | HTML               |         13 |          0 |          1 |         14 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/main.ts                                                       | TypeScript         |          9 |          0 |          4 |         13 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/polyfills.ts                                                  | TypeScript         |          1 |         47 |          6 |         54 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/styles.css                                                    | CSS                |          3 |          0 |          0 |          3 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/src/test.ts                                                       | TypeScript         |         18 |          4 |          5 |         27 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/tailwind.config.js                                                | JavaScript         |          9 |          0 |          0 |          9 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/tsconfig.app.json                                                 | JSON               |         14 |          1 |          1 |         16 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/tsconfig.json                                                     | JSON with Comments |         31 |          1 |          1 |         33 |
+| /home/xander/Documents/EICT/GUI/EindProjectGUI_2022/tsconfig.spec.json                                                | JSON               |         17 |          1 |          1 |         19 |
+| Total                                                                                                                 |                    |     21,714 |         77 |        208 |     21,999 |
++-----------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

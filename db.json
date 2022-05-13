@@ -1,8 +1,18 @@
 {
-    "tankbeurten":[
-        {"id":1,"date":"1/1/1 14:44","totLiters":70,"totPrice":100,"kmStand":120000},
-        {"id":2,"date":"1/1/1 14:55","totLiters":70,"totPrice":100,"kmStand":120800},
-        {"id":3,"date":"1/1/1 14:55","totLiters":70,"totPrice":100,"kmStand":121600},
-        {"id":4,"date":"1/1/1 14:55","totLiters":70,"totPrice":100,"kmStand":122400}
-    ]
+  "tankbeurten": [
+    {
+      "id": 1,
+      "date": "Fri, 13 May 2022 13:11:25 GMT",
+      "totLiters": "60",
+      "totPrice": "100",
+      "kmStand": "170000"
+    },
+    {
+      "id": 2,
+      "date": "Fri, 13 May 2022 13:11:55 GMT",
+      "totLiters": "54",
+      "totPrice": "90",
+      "kmStand": "170800"
+    }
+  ]
 }

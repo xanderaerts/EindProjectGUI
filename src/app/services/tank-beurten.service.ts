@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TankbeurtListItemComponent } from '../tankbeurt-list-item/tankbeurt-list-item.component';
 import { tankBeurt } from '../tankbeurt.model';
 
 @Injectable({
@@ -8,31 +9,38 @@ import { tankBeurt } from '../tankbeurt.model';
 })
 export class TankBeurtenService {
 
-  tankbeurten: tankBeurt[] = [];
+  showEditForm: boolean = false;
+
+  //tankbeurten: tankBeurt[] = [];
+  curren_Tankbeurt = '';
 
   constructor(private http: HttpClient) {
-    const url = 'http://localhost:3000/tankbeurten';
-    console.log("test");
-    this.http.get(url).subscribe(
-      {
-        next: (res :any ) => {
-          this.tankbeurten = res;
-          console.log(this.tankbeurten);
-        },
-      }
-    )
   }
 
   getList(){
     const url = 'http://localhost:3000/tankbeurten';
-    console.log(this.http.get<tankBeurt[]>(url));
-    this.http.get(url).subscribe(
-      {
-        next: (res :any ) => {
-          this.tankbeurten = res;
-          console.log(this.tankbeurten);
-        },
-      }
-    )
+    return this.http.get<tankBeurt[]>(url);
   }
+
+  getTankbeurt(id: number){
+    const url = 'http://localhost:3000/tankbeurten/' + id;
+    console.log("hier");
+    return this.http.get<tankBeurt>(url);
+  }
+
+  updateTankbeurt(tankbeurt : tankBeurt){
+    const url = 'http://localhost:3000/tankbeurten/' + tankbeurt.id;
+    return this.http.put<tankBeurt>(url,tankbeurt);
+  }
+
+  addTankbeurt(tankbeurt : tankBeurt){
+    const url = 'http://localhost:3000/tankbeurten/';
+    return this.http.post<tankBeurt>(url,tankbeurt);
+  }
+
+  deleteTankbeurt(id : number){
+    const url = 'http://localhost:3000/tankbeurten/' + id;
+    return this.http.delete(url);
+  }
+  
 }
