@@ -36,7 +36,6 @@ export class EditTankbeurtFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("hey ik besta vanaf nu");
 
     var id = this.route.snapshot.params['id'] as number;
     console.log("test");

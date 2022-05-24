@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TankbeurtListItemComponent } from '../tankbeurt-list-item/tankbeurt-list-item.component';
 import { tankBeurt } from '../tankbeurt.model';
 
 @Injectable({

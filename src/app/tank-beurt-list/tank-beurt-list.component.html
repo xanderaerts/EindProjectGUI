@@ -2,7 +2,7 @@
     <table class="w-full rounded-lg shadow">
         <thead class="bg-gray-50 border-b-2 border-gray-200 sticky top-0">
             <tr>
-                <th class="p-3 text-sm font-semibold tracking-wide text-left" >id</th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-left">id</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Datum</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left"> Totaal aantal liters</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">prijs tankbeurt</th>
@@ -13,41 +13,40 @@
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Delete</th>
             </tr>
         </thead>
-
         <tbody>
-            <tr *ngFor = 'let tb of tankbeurten' class="border-2 rounded-lg hover:bg-gray-200" >
-                <td class="p-3">
-                    {{tb.id}}
-                </td>
-                <td class="p-3">
-                    {{tb.date}}
-                </td>
-                <td class="p-3">
-                    {{tb.totLiters}}
-                </td>
-                <td class="p-3">
-                    €{{tb.totPrice}}
-                </td>
-                <td class="p-3">
-                    {{tb.kmStand}}
-                </td>
-                <td class="p-3">        
-                    {{calcAvg(tb.id-1)}}
-                </td>
-                <td class="p-3">
-                    {{calcKm(tb.id-1)}}
-                </td>
-                <td class="p-3">
-                    <a routerLink="/editForm/{{tb.id}}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></a>
-                </td>
-                <td class="p-3">
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                    (click)="onDeleteClick(tb.id)">Delete</button>
-                </td>
-            </tr>
+            <tr *ngFor='let tb of tankbeurten' class="border-2 rounded-lg hover:bg-gray-200 w-full">
+        <td class="p-3">
+            {{tb!.id}}
+        </td>
+        <td class="p-3">
+            {{tb!.date | date:"dd MMMM YYYY h:m"}}
+        </td>
+        <td class="p-3">
+            {{tb!.totLiters | addLiters}}
+        </td>
+        <td class="p-3">
+            {{tb!.totPrice | addEuro}}
+        </td>
+        <td class="p-3">
+            {{tb!.kmStand | addKm}}
+        </td>
+        <td class="p-3">        
+            {{calcAvg(tb!.id-1) | addLiters}}
+        </td>
+        <td class="p-3">
+            {{calcKm(tb!.id-1) | addKm}}
+        </td>
+        <td class="p-3">
+            <a routerLink="/editForm/{{tb!.id}}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></a>
+        </td>
+        <td class="p-3">
+        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        (click)="onDeleteClick(tb!.id)">Delete</button>
+    </td>
 
+            </tr>
         </tbody>
-    </table>    
+    </table>
 </div>
 
 

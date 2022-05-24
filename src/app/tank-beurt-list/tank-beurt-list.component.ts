@@ -13,9 +13,9 @@ export class TankBeurtListComponent implements OnInit {
 
 
   tankbeurten : tankBeurt[] = [];
+  
 
   constructor(public tankBeurtService : TankBeurtenService) {}
-
   onDeleteClick(id: number){
 
     if(confirm("Zeker dat je deze tankbeurt wilt verwijderen?")){
@@ -29,13 +29,12 @@ export class TankBeurtListComponent implements OnInit {
 
   calcAvg(id : number) : number{
 
-    var prevKmTot,km,liters = 0;
-    var currentKmTot = this.tankbeurten[id].kmStand;
+    let prevKmTot,km,liters = 0;
+    let currentKmTot = this.tankbeurten[id].kmStand;
 
     if(id <= 0){
       prevKmTot = this.tankbeurten[id].kmStand;
       km = this.tankbeurten[id].kmStand;
-      console.log("km",km);
     }
     else{
       liters = this.tankbeurten[id].totLiters;
@@ -47,7 +46,7 @@ export class TankBeurtListComponent implements OnInit {
       return 0;
     }
 
-    var gemL = (liters*100) / km;
+    let gemL = (liters*100) / km;
 
     return gemL;
   }
@@ -57,8 +56,8 @@ export class TankBeurtListComponent implements OnInit {
       return 0;
     }
     
-    var curKm = this.tankbeurten[id].kmStand;
-    var prevKm = this.tankbeurten[id-1].kmStand;
+    let curKm = this.tankbeurten[id].kmStand;
+    let prevKm = this.tankbeurten[id-1].kmStand;
 
     return curKm - prevKm;
   }
@@ -73,7 +72,10 @@ export class TankBeurtListComponent implements OnInit {
     );
   }
 
+
+
   ngOnInit(): void {
     this.getTankbeurten();
   }
+
 }

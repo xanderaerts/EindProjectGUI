@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TankbeurtListItemComponent } from './tankbeurt-list-item.component';
+import { TankbeurtListPageComponent } from './tankbeurt-list-page.component';
 
-describe('TankbeurtListItemComponent', () => {
-  let component: TankbeurtListItemComponent;
-  let fixture: ComponentFixture<TankbeurtListItemComponent>;
+describe('TankbeurtListPageComponent', () => {
+  let component: TankbeurtListPageComponent;
+  let fixture: ComponentFixture<TankbeurtListPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TankbeurtListItemComponent ]
+      declarations: [ TankbeurtListPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TankbeurtListItemComponent);
+    fixture = TestBed.createComponent(TankbeurtListPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

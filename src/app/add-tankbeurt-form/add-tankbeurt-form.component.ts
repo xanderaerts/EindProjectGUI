@@ -21,11 +21,11 @@ export class AddTankbeurtFormComponent implements OnInit {
     //var newTankbeurt = new tankBeurt(null,date,f.value.amountLiters,f.value.totKms,f.value.totPrice);
 
     const newTankbeurt = {
-      id:null,
+      id:0,
       date: date,
-      totLiters: f.value.amountLiters,
-      totPrice: f.value.totPrice,
-      kmStand: f.value.totKms
+      totLiters: Number(f.value.amountLiters),
+      totPrice: Number(f.value.totPrice),
+      kmStand: Number(f.value.totKms)
     }
 
     this.tankbeurtservice.addTankbeurt(newTankbeurt).subscribe(
