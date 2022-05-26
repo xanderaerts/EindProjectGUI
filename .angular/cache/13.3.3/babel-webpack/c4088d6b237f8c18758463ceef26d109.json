@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class tankBeurt {\n  constructor(id, date, totLiters, totPrice, kmStand) {\n    this.id = id;\n    this.date = date;\n    this.totLiters = totLiters;\n    this.totPrice = totPrice;\n    this.kmStand = kmStand;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
