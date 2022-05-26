@@ -16,6 +16,10 @@ export class AddTankbeurtFormComponent implements OnInit {
 
   constructor(private tankbeurtservice : TankBeurtenService,private router: Router) { }
 
+  liters = "";
+  kms = "";
+  bedrag = "";
+
   onFormSubmit(f: NgForm){
     let date = new Date().toUTCString();
     //var newTankbeurt = new tankBeurt(null,date,f.value.amountLiters,f.value.totKms,f.value.totPrice);
@@ -33,16 +37,13 @@ export class AddTankbeurtFormComponent implements OnInit {
         console.log(res);
         this.router.navigate(['overview']);
       }      
-    )
-    ;
-      
-
+    );
   }
 
   onReset(){
-    /*this.liters = '';
+    this.liters = '';
     this.kms = '';
-    this.bedrag = '';*/
+    this.bedrag = '';
   }
 
   ngOnInit(): void {

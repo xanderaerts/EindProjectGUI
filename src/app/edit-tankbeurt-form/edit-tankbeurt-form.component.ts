@@ -22,7 +22,15 @@ export class EditTankbeurtFormComponent implements OnInit {
   currentTankbeurt: tankBeurt =  new tankBeurt(-1,"1/1/1",-1,-1,-1);
 
   onFormSubmit(f: NgForm){
-    this.tankBeurtService.updateTankbeurt(this.currentTankbeurt).subscribe(
+    const newTankbeurt = {
+      id:this.currentTankbeurt.id,
+      date: this.currentTankbeurt.date,
+      totLiters: Number(f.value.amountLiters),
+      totPrice: Number(f.value.totPrice),
+      kmStand: Number(f.value.totKms)
+    }
+
+    this.tankBeurtService.updateTankbeurt(newTankbeurt).subscribe(
       (res : tankBeurt ) => {
         this.tankBeurtService.getList();
         this.router.navigate(['overview']);

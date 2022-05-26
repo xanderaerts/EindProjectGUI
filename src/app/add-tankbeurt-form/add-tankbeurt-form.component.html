@@ -9,19 +9,19 @@
     <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
           <label for="liters">Aantal liters:</label>
           <input class="border-solid border-slate-300 border-2 w-full rounded-lg py-0.5 px-2 text-black form-control"
-            type="text" id="amountLiters" name="amountLiters" ngModel required #amountLiters="ngModel"  >
+            type="text" id="amountLiters" name="amountLiters" ngModel required #amountLiters="ngModel" [(ngModel)]="liters"  >
 
           <div class="text-red-500" *ngIf="!amountLiters.valid && amountLiters.touched">Vul het aantal liters in.<br></div>
 
           <label for="kmters">Km stand auto: </label>
           <input class="border-solid border-slate-300 border-2 w-full rouned-lg py-0.5 text-black form-control"
-          type="text" id="kmters" name="totKms" ngModel required #totKms="ngModel" >
+          type="text" id="kmters" name="totKms" ngModel required #totKms="ngModel" [(ngModel)]="kms" >
 
           <div class="text-red-500" *ngIf="!totKms.valid && totKms.touched">Vul de kilometerstand in<br></div>
         
           <label for="prijs">Bedrag:</label>
           <input class="border-solid border-slate-300 border-2 w-full rouned-lg py-0.5 text-black form-control" 
-          type="text" id="prijs" name="totPrice" ngModel required #totPrice="ngModel">
+          type="text" id="prijs" name="totPrice" ngModel required #totPrice="ngModel" [(ngModel)]="bedrag">
 
           <div class="text-red-500" *ngIf="!totPrice.valid && totPrice.touched">Vul de kilometerstand in<br></div>
 
@@ -29,12 +29,10 @@
         <div class="m-2 pt-5 flex justify-around">
           <button [disabled]="!f.valid" class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
           type="submit">Voeg toe</button>
-
-          <button class="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-          (click)="onReset()">Reset</button>
-
-      </div>
-    </form>
+          
+        </div>
+      </form>   <button class="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                (click)="onReset()">Reset</button>
   </div>
       
   </div>

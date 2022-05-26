@@ -11,10 +11,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { TankBeurtListComponent } from './tank-beurt-list/tank-beurt-list.component';
 import { EditTankbeurtFormComponent } from './edit-tankbeurt-form/edit-tankbeurt-form.component';
-import { AddEuroPipe } from './add-euro.pipe';
-import { AddKmPipe } from './add-km.pipe';
-import { AddLitersPipe } from './add-liters.pipe';
-import { TankbeurtListPageComponent } from './tankbeurt-list-page/tankbeurt-list-page.component'
+import { AddEuroPipe } from './pipes/add-euro.pipe';
+import { AddKmPipe } from './pipes/add-km.pipe';
+import { AddLitersPipe } from './pipes/add-liters.pipe';
+import { TankbeurtListPageComponent } from './tankbeurt-list-page/tankbeurt-list-page.component';
 
 const routes:Routes=[
   {path:'home',component:HomepageComponent},

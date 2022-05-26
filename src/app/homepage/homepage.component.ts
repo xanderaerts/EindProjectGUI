@@ -14,9 +14,9 @@ export class HomepageComponent implements OnInit {
   totPrice = 0;
   totKm = 0;
 
+
   constructor(public tankBeurtService: TankBeurtenService) {
-    this.calcTotConsumpions()
-    console.log("test");
+    this.calcTotConsumpions();
    }
 
   ngOnInit(): void {
@@ -27,24 +27,23 @@ export class HomepageComponent implements OnInit {
     this.tankBeurtService.getList().subscribe(
       (response : tankBeurt[]) => {
         tankbeurten = response;
-        console.log(typeof(tankbeurten[0].totLiters));
         for(let i = 0;i<tankbeurten.length;i++){
           this.totLiters += tankbeurten[i].totLiters;
           this.totPrice += tankbeurten[i].totPrice;
-          if(i == 0 || i == 1){
-            this.totKm += tankbeurten[i].kmStand;
-          }
-          else{
-            this.totKm += tankbeurten[i-1].kmStand -tankbeurten[i].kmStand;
-            console.log(this.totKm,this.totPrice,this.totLiters);
-          }
+          this.totKm += tankbeurten[i].kmStand;
         }
     
       },
       (error) => console.log("error:",error),
       () => console.log("ready")
     );
-
-
   }
+
+  calcTotAvg(){
+    
+    var gem = (this.totLiters) * 100 /this.totKm;
+    return Math.round((gem + Number.EPSILON)*100 ) / 100  }
+
+
+
 }

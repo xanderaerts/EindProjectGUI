@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { tankBeurt } from '../tankbeurt.model';
 import { TankBeurtenService } from '../services/tank-beurten.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tank-beurt-list',
@@ -47,8 +46,7 @@ export class TankBeurtListComponent implements OnInit {
     }
 
     let gemL = (liters*100) / km;
-
-    return gemL;
+    return Math.round((gemL + Number.EPSILON) * 100) /100;
   }
 
   calcKm(id : number) : number{

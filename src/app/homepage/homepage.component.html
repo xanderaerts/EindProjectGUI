@@ -1,14 +1,20 @@
 <div class="grid grid-cols-2 m-7">
-    <div class="bg-slate-200 border-black border-4 rounded-lg 0 flex justify-center h-60 w-11/12 ">
-        <h3 class="">Totaal km's gereden: </h3>   
-        <p>{{totKm |addKm}}</p>                    
+    <div class="bg-slate-200 border-black border-4 rounded-lg flex justify-center h-60 w-11/12 m-auto mb-10 shadow-xl">
+        <h3 class="font-bold text-3xl flex center m-auto">Totaal km's gereden: </h3>
+        <p class="font-bold text-7xl flex center m-auto">{{totKm |addKm}}</p>                    
     </div>
-    <div class="bg-slate-200 border-black border-4 rounded-lg h-60 1 flex justify-center w-11/12 m-auto">
-       <p>Totaal liters getankt: </p>
-       <p>{{totLiters | addLiters}}</p>
+    <div class="bg-slate-200 border-black border-4 rounded-lg h-60 flex justify-center w-11/12 m-auto mb-10 shadow-xl">
+       <h3 class="font-bold text-3xl flex-center m-auto" >Totaal liters getankt: </h3>
+       <p class="font-bold text-7xl flex center m-auto">{{totLiters | addLiters}}</p>
     </div>  
+    
+    <div class="bg-slate-200 border-black border-4 rounded-lg h-60 flex justify-center w-11/12 m-auto shadow-xl">
+        <h3 class="font-bold text-3xl flex center m-auto">Totaal bedrag:</h3>
+        <p class="font-bold text-7xl flex center m-auto">{{totPrice | addEuro}}</p>
+    </div> 
+
+    <div class="bg-slate-200 border-black border-4 rounded-lg h-60 flex justify-center w-11/12 m-auto shadow-xl">
+        <h3 class="font-bold text-3xl flex-center m-auto" >Gemmiddeld verbruik: </h3>
+        <p class="font-bold text-7xl flex center m-auto">{{calcTotAvg() | addLiters}}</p>
+     </div>      
 </div>
-<div class="bg-slate-200 border-black border-4 rounded-lg h-60 w-9/12 flex center m-auto">
-    <p>Totaal bedrag €</p>
-    <p>{{totPrice | addEuro}}</p>
-</div>  

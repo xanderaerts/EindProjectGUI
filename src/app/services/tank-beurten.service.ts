@@ -40,6 +40,5 @@ export class TankBeurtenService {
   deleteTankbeurt(id : number){
     const url = 'http://localhost:3000/tankbeurten/' + id;
     return this.http.delete(url);
-  }
-  
+  }  
 }
