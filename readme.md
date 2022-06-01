@@ -6,6 +6,10 @@ Wie wil dat nu niet?!
 Run de app en geniet er van!
 
 
+# Bugs to Fix
+- bij delete lijst juist updaten
+- getallen home page
+  
 # How to install? 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
