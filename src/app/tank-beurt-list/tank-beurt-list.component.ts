@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tankBeurt } from '../tankbeurt.model';
 import { TankBeurtenService } from '../services/tank-beurten.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-tank-beurt-list',
@@ -21,8 +22,13 @@ export class TankBeurtListComponent implements OnInit {
       this.tankBeurtService.deleteTankbeurt(id).subscribe(
         (res : any)=>{
           this.getTankbeurten();
+        })
+
+        for(let i = 0;i<this.tankbeurten.length;i++){
+          this.tankbeurten[i].id = this.tankbeurten[i].id - 1;
+          //this.tankBeurtService.updateList();
         }
-      )
+
     }
   }
 
