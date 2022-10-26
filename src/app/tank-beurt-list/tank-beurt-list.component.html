@@ -2,7 +2,8 @@
     <table class="w-full rounded-lg shadow">
         <thead class="bg-gray-50 border-b-2 border-gray-200 sticky top-0">
             <tr>
-                <th class="p-3 text-sm font-semibold tracking-wide text-left">id</th>
+               <!--- <th class="p-3 text-sm font-semibold tracking-wide text-left">id</th> -->
+                <th class="p-3 text-sm font-semibold tracking-wide text-left">Index</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Datum</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left"> Totaal aantal liters</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">prijs tankbeurt</th>
@@ -14,12 +15,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor='let tb of tankbeurten' class="border-2 rounded-lg hover:bg-gray-200 w-full">
-        <td class="p-3">
+            <tr *ngFor='let tb of tankbeurten; let i = index' class="border-2 rounded-lg hover:bg-gray-200 w-full">
+      <!-- <td class="p-3">
             {{tb!.id}}
-        </td>
+
+            | date:"dd MMMM YYYY h:m"
+        </td> -->
+        <td class="p-3">{{i}}</td>
         <td class="p-3">
-            {{tb!.date | date:"dd MMMM YYYY h:m"}}
+            {{tb!.date }}
         </td>
         <td class="p-3">
             {{tb!.totLiters | addLiters}}
@@ -31,10 +35,10 @@
             {{tb!.kmStand | addKm}}
         </td>
         <td class="p-3">        
-            {{calcAvg(tb!.id-1) | addLiters  }}
+            {{calcAvg(i) | addLiters  }}
         </td>
         <td class="p-3">
-            {{calcKm(tb!.id-1) | addKm}}
+            {{calcKm(i) | addKm}}
         </td>
         <td class="p-3">
             <a routerLink="/editForm/{{tb!.id}}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></a>
@@ -48,6 +52,3 @@
         </tbody>
     </table>
 </div>
-
-
-<app-edit-tankbeurt-form [style.display]="tankBeurtService.showEditForm ? 'block' : 'none'"></app-edit-tankbeurt-form>

@@ -2,6 +2,10 @@ import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
 
+import {initializeApp,provideFirebaseApp} from '@angular/fire/app'
+import {getFirestore,provideFirestore} from '@angular/fire/firestore'
+import {provideAuth,getAuth} from '@angular/fire/auth'
+
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
@@ -15,12 +19,17 @@ import { AddEuroPipe } from './pipes/add-euro.pipe';
 import { AddKmPipe } from './pipes/add-km.pipe';
 import { AddLitersPipe } from './pipes/add-liters.pipe';
 import { TankbeurtListPageComponent } from './tankbeurt-list-page/tankbeurt-list-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AuthModule } from './auth/auth.module';
+import { environment } from 'src/environments/environment';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes:Routes=[
-  {path:'home',component:HomepageComponent},
-  {path:'addForm',component:AddTankbeurtFormComponent},
-  {path:'overview',component:TankbeurtListPageComponent},
-  {path: 'editForm/:id',component:EditTankbeurtFormComponent},
+  {path:'home',component:HomepageComponent,/*canActivate:[AuthGuard]*/},
+  {path:'addForm',component:AddTankbeurtFormComponent,/*canActivate:[AuthGuard]*/},
+  {path:'overview',component:TankbeurtListPageComponent,/*canActivate:[AuthGuard]*/},
+  {path: 'editForm/:id',component:EditTankbeurtFormComponent,/*canActivate:[AuthGuard]*/},
   {path: '**', redirectTo: '/home'}
   
 ]
@@ -42,7 +51,12 @@ const routes:Routes=[
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule  
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AuthModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth())
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

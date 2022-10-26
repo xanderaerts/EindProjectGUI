@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TankBeurtenService } from '../services/tank-beurten.service';
-import { tankBeurt } from '../tankbeurt.model';
+import { TankBeurt } from '../tankbeurt.model';
+
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-add-tankbeurt-form',
@@ -14,27 +16,27 @@ export class AddTankbeurtFormComponent implements OnInit {
 
 
 
-  constructor(private tankbeurtservice : TankBeurtenService,private router: Router) { }
+  constructor(private dataservice : DataService,private router: Router) { }
 
   liters = "";
   kms = "";
   bedrag = "";
 
   onFormSubmit(f: NgForm){
-    let date = new Date().toUTCString();
-    //var newTankbeurt = new tankBeurt(null,date,f.value.amountLiters,f.value.totKms,f.value.totPrice);
+    let date:string = new Date().toUTCString();
+    console.log(date);
+    //var newTankbeurt = new TankBeurt(null,date,f.value.amountLiters,f.value.totKms,f.value.totPrice);
 
-    const newTankbeurt = {
-      id:0,
+    const newTankbeurt : TankBeurt = {
+      id: "",
       date: date,
       totLiters: Number(f.value.amountLiters),
       totPrice: Number(f.value.totPrice),
       kmStand: Number(f.value.totKms)
     }
 
-    this.tankbeurtservice.addTankbeurt(newTankbeurt).subscribe(
-      (res : tankBeurt) => {
-        console.log(res);
+    this.dataservice.addTankbeurt(newTankbeurt).subscribe(
+      () => {
         this.router.navigate(['overview']);
       }      
     );

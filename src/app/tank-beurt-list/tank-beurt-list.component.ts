@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { tankBeurt } from '../tankbeurt.model';
+import { TankBeurt } from '../tankbeurt.model';
 import { TankBeurtenService } from '../services/tank-beurten.service';
 import { FormBuilder } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-tank-beurt-list',
@@ -12,38 +13,45 @@ import { FormBuilder } from '@angular/forms';
 export class TankBeurtListComponent implements OnInit {
 
 
-  tankbeurten : tankBeurt[] = [];
+  tankbeurten : TankBeurt[] = [];
   
 
-  constructor(public tankBeurtService : TankBeurtenService) {}
-  onDeleteClick(id: number){
+  constructor(private dataservice : DataService) {}
+
+  sortbyDate(a : string, b : string){
+    if(a < b ){
+      return -1;
+    }
+    else if (a > b ){
+      return 1;
+    }
+    return 0;
+  }
+
+  
+  onDeleteClick(id: string){
 
     if(confirm("Zeker dat je deze tankbeurt wilt verwijderen?")){
-      this.tankBeurtService.deleteTankbeurt(id).subscribe(
+      this.dataservice.deleteTankbeurt(id).subscribe(
         (res : any)=>{
           this.getTankbeurten();
         })
-
-        for(let i = 0;i<this.tankbeurten.length;i++){
-          this.tankbeurten[i].id = this.tankbeurten[i].id - 1;
-          //this.tankBeurtService.updateList();
-        }
-
     }
   }
 
-  calcAvg(id : number) : number{
+
+  calcAvg(index : number) : number{
 
     let prevKmTot,km,liters = 0;
-    let currentKmTot = this.tankbeurten[id].kmStand;
+    let currentKmTot = this.tankbeurten[index].kmStand;
 
-    if(id <= 0){
-      prevKmTot = this.tankbeurten[id].kmStand;
-      km = this.tankbeurten[id].kmStand;
+    if(index <= 0){
+      prevKmTot = this.tankbeurten[index].kmStand;
+      km = this.tankbeurten[index].kmStand;
     }
     else{
-      liters = this.tankbeurten[id].totLiters;
-      prevKmTot = this.tankbeurten[id-1].kmStand;    
+      liters = this.tankbeurten[index].totLiters;
+      prevKmTot = this.tankbeurten[index-1].kmStand;    
       km = currentKmTot - prevKmTot;
     }
 
@@ -55,25 +63,24 @@ export class TankBeurtListComponent implements OnInit {
     return Math.round((gemL + Number.EPSILON) * 100) /100;
   }
 
-  calcKm(id : number) : number{
-    if(id <=  0 ){
+  calcKm(index : number) : number{
+    if(index <=  0 ){
       return 0;
     }
     
-    let curKm = this.tankbeurten[id].kmStand;
-    let prevKm = this.tankbeurten[id-1].kmStand;
+    let curKm = this.tankbeurten[index].kmStand;
+    let prevKm = this.tankbeurten[index-1].kmStand;
 
     return curKm - prevKm;
   }
 
   getTankbeurten(){
-    this.tankBeurtService.getList().subscribe(
-      (response : tankBeurt[]) => {
+    this.dataservice.getList().subscribe(
+      (response : TankBeurt[]) => {
         this.tankbeurten = response;
+        this.tankbeurten.sort((a,b) => this.sortbyDate(a.date,b.date))
       },
-      (error) => console.log("error:",error),
-      () => console.log("ready")
-    );
+      (error) => console.log("error:",error));
   }
 
 

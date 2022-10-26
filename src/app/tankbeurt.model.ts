@@ -1,6 +1,6 @@
-export class tankBeurt {
+export class TankBeurt {
     constructor(
-    public id: number,
+    public id:string,
     public date:string,
     public totLiters:number,
     public totPrice:number,

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TankBeurtenService } from '../services/tank-beurten.service';
-import { tankBeurt } from '../tankbeurt.model'
+import { TankBeurt } from '../tankbeurt.model'
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-homepage',
@@ -15,7 +18,7 @@ export class HomepageComponent implements OnInit {
   totKm = 0;
 
 
-  constructor(public tankBeurtService: TankBeurtenService) {
+  constructor(public authService:AuthService,private dataservice:DataService,private router:Router) {
     this.calcTotConsumpions();
    }
 
@@ -23,15 +26,17 @@ export class HomepageComponent implements OnInit {
   }
 
   calcTotConsumpions(){
-    let tankbeurten : tankBeurt[] = [];
-    this.tankBeurtService.getList().subscribe(
-      (response : tankBeurt[]) => {
+    let tankbeurten : TankBeurt[] = [];
+    this.dataservice.getList().subscribe(
+      (response : TankBeurt[]) => {
         tankbeurten = response;
         for(let i = 0;i<tankbeurten.length;i++){
           this.totLiters += tankbeurten[i].totLiters;
           this.totPrice += tankbeurten[i].totPrice;
           this.totKm += tankbeurten[i].kmStand;
         }
+
+        this.totKm -= tankbeurten[0].kmStand;
     
       },
       (error) => console.log("error:",error),
@@ -42,7 +47,8 @@ export class HomepageComponent implements OnInit {
   calcTotAvg(){
     
     var gem = (this.totLiters) * 100 /this.totKm;
-    return Math.round((gem + Number.EPSILON)*100 ) / 100  }
+    return Math.round((gem + Number.EPSILON)*100 ) / 100 
+  }
 
 
 
