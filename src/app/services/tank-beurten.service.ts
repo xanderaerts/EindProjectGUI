@@ -23,7 +23,6 @@ export class TankBeurtenService {
 
   getTankbeurt(id: number){
     const url = 'http://localhost:3000/tankbeurten/' + id;
-    console.log("hier");
     return this.http.get<TankBeurt>(url);
   }
 
@@ -44,8 +43,6 @@ export class TankBeurtenService {
 
   
   updateList(tankbeurten: TankBeurt[]){
-    console.log("test");
-
    for(let i = 0;i<tankbeurten.length;i++){
     const url = 'http://localhost:3000/tankbeurten' + tankbeurten[i].id;
     return this.http.post<TankBeurt>(url,tankbeurten[i]);

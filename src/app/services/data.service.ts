@@ -34,16 +34,12 @@ export class DataService {
   }
 
   updateTankbeurt(tankbeurt:TankBeurt){
-    console.log("fbidk ", tankbeurt.id);
     const tbRef = doc(this.db,'tankbeurten/'+tankbeurt.id) as DocumentReference<TankBeurt>;
     return from(updateDoc(tbRef,tankbeurt));
   }
 
   getTankbeurt(id:string){
-    let test = docData<TankBeurt>(
+    return docData<TankBeurt>(
       doc(this.db,'/tankbeurten/'+id) as DocumentReference<TankBeurt>);
-    console.log(test);
-    return test
   }
-  
 }

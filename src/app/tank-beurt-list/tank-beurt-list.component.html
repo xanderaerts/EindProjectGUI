@@ -1,13 +1,16 @@
+<link href=
+"https://fonts.googleapis.com/icon?family=Material+Icons&display=block" 
+        rel="stylesheet">
 <div class="m-10">
     <table class="w-full rounded-lg shadow">
         <thead class="bg-gray-50 border-b-2 border-gray-200 sticky top-0">
             <tr>
-               <!--- <th class="p-3 text-sm font-semibold tracking-wide text-left">id</th> -->
-                <th class="p-3 text-sm font-semibold tracking-wide text-left">Index</th>
-                <th class="p-3 text-sm font-semibold tracking-wide text-left">Datum</th>
-                <th class="p-3 text-sm font-semibold tracking-wide text-left"> Totaal aantal liters</th>
-                <th class="p-3 text-sm font-semibold tracking-wide text-left">prijs tankbeurt</th>
-                <th class="p-3 text-sm font-semibold tracking-wide text-left">Km stand</th>
+               <!--- <th class="p-3 text-sm font-semibold tracking-wide text-left">id</th> 
+                <th class="p-3 text-sm font-semibold tracking-wide text-left">Index</th> -->
+                <th class="p-3 text-sm font-semibold tracking-wide text-left" (click)="changeSort('datum')">Datum <mat-icon>filter_list</mat-icon></th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-left" (click)="changeSort('liters')"> Totaal aantal liters <mat-icon>filter_list</mat-icon></th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-left" (click)="changeSort('prijs')">prijs tankbeurt <mat-icon>filter_list</mat-icon></th>
+                <th class="p-3 text-sm font-semibold tracking-wide text-left" (click)="changeSort('km')">Km stand <mat-icon>filter_list</mat-icon></th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Gem L/100km</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Km/tankbeurt</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Edit</th>
@@ -15,13 +18,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor='let tb of tankbeurten; let i = index' class="border-2 rounded-lg hover:bg-gray-200 w-full">
+            <tr *ngFor='let tb of tankbeurten | sortPipe:sortType let i = index' class="border-2 rounded-lg hover:bg-gray-200 w-full">
       <!-- <td class="p-3">
             {{tb!.id}}
-        </td> -->
-        <td class="p-3">{{i}}</td>
+        </td> 
+        <td class="p-3">{{i}}</td> -->
         <td class="p-3">
-            {{tb!.date | date:"dd MMMM YYYY HH:m:ss"}}
+            {{tb!.date | date:"dd MMMM YYYY HH:mm:ss"}}
         </td>
         <td class="p-3">
             {{tb!.totLiters | addLiters}}
@@ -42,10 +45,10 @@
             <a routerLink="/editForm/{{tb!.id}}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></a>
         </td>
         <td class="p-3">
+
         <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
         (click)="onDeleteClick(tb!.id)">Delete</button>
-    </td>
-
+        </td>   
             </tr>
         </tbody>
     </table>

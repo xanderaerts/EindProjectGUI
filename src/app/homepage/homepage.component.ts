@@ -39,9 +39,7 @@ export class HomepageComponent implements OnInit {
         this.totKm -= tankbeurten[0].kmStand;
     
       },
-      (error) => console.log("error:",error),
-      () => console.log("ready")
-    );
+      (error) => console.log("error:",error));
   }
 
   calcTotAvg(){

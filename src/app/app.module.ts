@@ -25,6 +25,9 @@ import { AuthModule } from './auth/auth.module';
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './auth/auth.guard';
 import { CanComponentDeactivateGuard } from './can-component-deactivate.guard';
+import { SortPipe } from './pipes/sort.pipe';
+
+import {MatIconModule} from '@angular/material/icon';
 
 const routes:Routes=[
   {path:'home',component:HomepageComponent,/*canActivate:[AuthGuard]*/},
@@ -47,6 +50,7 @@ const routes:Routes=[
     AddKmPipe,
     AddLitersPipe,
     TankbeurtListPageComponent,
+    SortPipe,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,7 @@ const routes:Routes=[
     HttpClientModule,
     BrowserAnimationsModule,
     AuthModule,
+    MatIconModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth())

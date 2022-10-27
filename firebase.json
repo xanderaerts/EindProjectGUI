@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/eind-project-gui2022",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -20,7 +20,6 @@ export class SignupComponent implements OnInit {
   constructor(public authService: AuthService,private router:Router) {}
 
    onSubmit(){
-    console.log(this.signupForm);
     const email = this.signupForm.value.email;
     const pswd = this.signupForm.value.password;
 

@@ -24,15 +24,13 @@ export class AddTankbeurtFormComponent implements OnInit {
 
   onFormSubmit(f: NgForm){
     let date:string = new Date().toString();
-    console.log(date);
-    //var newTankbeurt = new TankBeurt(null,date,f.value.amountLiters,f.value.totKms,f.value.totPrice);
 
     const newTankbeurt : TankBeurt = {
       id: "",
       date: date,
       totLiters: Number(f.value.amountLiters),
       totPrice: Number(f.value.totPrice),
-      kmStand: Number(f.value.totKms)
+      kmStand: Number(f.value.totKms),
     }
 
     this.dataservice.addTankbeurt(newTankbeurt).subscribe(
@@ -52,3 +50,4 @@ export class AddTankbeurtFormComponent implements OnInit {
   }
 
 }
+
