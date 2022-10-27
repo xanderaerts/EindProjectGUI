@@ -18,12 +18,10 @@
             <tr *ngFor='let tb of tankbeurten; let i = index' class="border-2 rounded-lg hover:bg-gray-200 w-full">
       <!-- <td class="p-3">
             {{tb!.id}}
-
-            | date:"dd MMMM YYYY h:m"
         </td> -->
         <td class="p-3">{{i}}</td>
         <td class="p-3">
-            {{tb!.date }}
+            {{tb!.date | date:"dd MMMM YYYY HH:m:ss"}}
         </td>
         <td class="p-3">
             {{tb!.totLiters | addLiters}}

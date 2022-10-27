@@ -24,12 +24,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './auth/auth.guard';
+import { CanComponentDeactivateGuard } from './can-component-deactivate.guard';
 
 const routes:Routes=[
   {path:'home',component:HomepageComponent,/*canActivate:[AuthGuard]*/},
   {path:'addForm',component:AddTankbeurtFormComponent,/*canActivate:[AuthGuard]*/},
   {path:'overview',component:TankbeurtListPageComponent,/*canActivate:[AuthGuard]*/},
-  {path: 'editForm/:id',component:EditTankbeurtFormComponent,/*canActivate:[AuthGuard]*/},
+  {path: 'editForm/:id',component:EditTankbeurtFormComponent,canDeactivate:[CanComponentDeactivateGuard]/*,canActivate:[AuthGuard]*/},
   {path: '**', redirectTo: '/home'}
   
 ]

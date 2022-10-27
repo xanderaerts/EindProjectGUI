@@ -37,28 +37,12 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  /*
-  validPasswords(control: AbstractControl ) {
-    let pswd = control.get('password')?.value;
-    let pswdC = control.get('passwordConfirm')?.value;
-
-    console.log("pswd: " + pswd + "   c " + pswdC);
-
-    if(pswd !== pswdC){
-      console.log("ik");
-      return {'passwordMismatch' : true};
-    }
-    return null;
-  }*/
-
   validPasswords(){
     return (control : AbstractControl): ValidationErrors | null => {
       let pswd = control.root.get('password')?.value;
       let pswdC = control.root.get('passwordConfirm')?.value;
       if(pswd && pswdC){
         if(pswd != pswdC){
-          console.log("fout");
           return {passwordMismatch : true};
         }
       }

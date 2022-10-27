@@ -19,7 +19,14 @@
             <a routerLink="/addForm" routerLinkActive="font-bold" class="block py-2 pr-4 pl-3 text-gray-300 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0">
                 Tankbeurt toevoegen</a>
           </li>
+          <li *ngIf="this.isLogged">
+            <a (click)="onLogout()" class="block py-2 pr-4 pl-3 text-gray-300 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0" >
+              Uitloggen
+            </a>
+          </li>
         </ul>
+
+
       </div>
     </div>
   </nav>

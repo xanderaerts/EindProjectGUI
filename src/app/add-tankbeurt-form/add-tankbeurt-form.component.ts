@@ -23,7 +23,7 @@ export class AddTankbeurtFormComponent implements OnInit {
   bedrag = "";
 
   onFormSubmit(f: NgForm){
-    let date:string = new Date().toUTCString();
+    let date:string = new Date().toString();
     console.log(date);
     //var newTankbeurt = new TankBeurt(null,date,f.value.amountLiters,f.value.totKms,f.value.totPrice);
 

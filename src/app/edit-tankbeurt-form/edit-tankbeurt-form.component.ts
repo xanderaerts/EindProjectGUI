@@ -1,7 +1,8 @@
-import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute,Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CanComponentDeactivate } from '../can-component-deactivate.guard';
 import { DataService } from '../services/data.service';
 import { TankBeurtenService } from '../services/tank-beurten.service';
 import { TankBeurt } from '../tankbeurt.model';
@@ -12,14 +13,17 @@ import { TankBeurt } from '../tankbeurt.model';
   styleUrls: ['./edit-tankbeurt-form.component.css'],
   providers: [TankBeurtenService]
 })
-export class EditTankbeurtFormComponent implements OnInit {
+export class EditTankbeurtFormComponent implements OnInit,CanComponentDeactivate {
 
   constructor(private route: ActivatedRoute,private router: Router,private dataservice: DataService) { }
+
+  saved : boolean = false;
 
   id : string = "";
   currentTankbeurt: TankBeurt =  new TankBeurt("",'',-1,-1,-1);
 
   onFormSubmit(f: NgForm){
+    this.saved = true;
     const newTankbeurt = {
       id:this.id,
       date: this.currentTankbeurt.date,
@@ -41,6 +45,7 @@ export class EditTankbeurtFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.saved = false;
 
     this.id = this.route.snapshot.params['id'] as string;
     
@@ -51,5 +56,12 @@ export class EditTankbeurtFormComponent implements OnInit {
       }
     );
   }
+
+  canDeactivate(): boolean | Observable<boolean> | Promise<boolean>{
+    if(this.saved === false){
+      return confirm('Wil je alle veranderingen verwijderen?');
+    }
+    return true;
+  };
 
 }

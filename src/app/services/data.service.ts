@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { collectionData, deleteDoc, Firestore, updateDoc,docData,collection, CollectionReference,addDoc, DocumentReference,doc} from '@angular/fire/firestore';
 import { TankBeurt } from '../tankbeurt.model';
-import { from } from 'rxjs';
-
+import { catchError, from,map, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +13,14 @@ export class DataService {
   getList(){
      return collectionData<TankBeurt>(
       collection(this.db,'tankbeurten') as CollectionReference<TankBeurt>,
-      {idField : 'id'}
-    );
+      {idField : 'id'})
+
+      .pipe(catchError(
+      (err) => {
+        console.log('error msg: ', err);
+        return throwError(() => new Error('It went wrong'))
+      }
+    ));
   }
 
   addTankbeurt(tb : TankBeurt){
