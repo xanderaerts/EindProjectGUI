@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor='let tb of tankbeurten | sortPipe:sortType let i = index' class="border-2 rounded-lg hover:bg-gray-200 w-full">
+            <tr *ngFor='let tb of tankbeurten | sortPipe:sortType:order let i = index' class="border-2 rounded-lg hover:bg-gray-200 w-full">
       <!-- <td class="p-3">
             {{tb!.id}}
         </td> 

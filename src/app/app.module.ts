@@ -30,10 +30,10 @@ import { SortPipe } from './pipes/sort.pipe';
 import {MatIconModule} from '@angular/material/icon';
 
 const routes:Routes=[
-  {path:'home',component:HomepageComponent,/*canActivate:[AuthGuard]*/},
-  {path:'addForm',component:AddTankbeurtFormComponent,/*canActivate:[AuthGuard]*/},
-  {path:'overview',component:TankbeurtListPageComponent,/*canActivate:[AuthGuard]*/},
-  {path: 'editForm/:id',component:EditTankbeurtFormComponent,canDeactivate:[CanComponentDeactivateGuard]/*,canActivate:[AuthGuard]*/},
+  {path:'home',component:HomepageComponent},
+  {path:'addForm',component:AddTankbeurtFormComponent,canActivate:[AuthGuard]},
+  {path:'overview',component:TankbeurtListPageComponent,canActivate:[AuthGuard]},
+  {path: 'editForm/:id',component:EditTankbeurtFormComponent,canDeactivate:[CanComponentDeactivateGuard],canActivate:[AuthGuard]},
   {path: '**', redirectTo: '/home'}
   
 ]

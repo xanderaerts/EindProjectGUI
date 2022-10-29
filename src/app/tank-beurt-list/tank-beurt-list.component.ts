@@ -13,6 +13,7 @@ export class TankBeurtListComponent implements OnInit {
 
   tankbeurten : TankBeurt[] = [];
   sortType: string = "datum";
+  order: boolean = true;
   
   constructor(private dataservice : DataService) {}
 
@@ -79,7 +80,8 @@ export class TankBeurtListComponent implements OnInit {
   }
 
   changeSort(sortType : string){
-    this.sortType = sortType
+    this.sortType = sortType;
+    this.order = !this.order;
   }
 
 

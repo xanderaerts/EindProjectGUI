@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
@@ -8,16 +8,14 @@ import { AuthService } from '../auth/auth.service';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(private authservice: AuthService) { }
+  constructor(public authservice: AuthService, private router: Router) { }
 
-  isLogged : boolean = false; 
+  isLogged: boolean = false;
   ngOnInit(): void {
-    this.isLogged = this.authservice.isLoggedIn();
   }
 
-  onLogout(){
+  onLogout() {
     this.authservice.logout();
-    
   }
 
 }
