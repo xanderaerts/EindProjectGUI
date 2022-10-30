@@ -1,5 +1,5 @@
 import { KeyValueDiffers, Pipe, PipeTransform } from '@angular/core';
-import { TankBeurt } from '../tankbeurt.model';
+import { TankBeurt } from '../models/tankbeurt.model';
 
 @Pipe({
   name: 'sortPipe',

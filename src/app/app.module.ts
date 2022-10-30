@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { TankBeurtListComponent } from './tank-beurt-list/tank-beurt-list.component';
-import { EditTankbeurtFormComponent } from './edit-tankbeurt-form/edit-tankbeurt-form.component';
 import { AddEuroPipe } from './pipes/add-euro.pipe';
 import { AddKmPipe } from './pipes/add-km.pipe';
 import { AddLitersPipe } from './pipes/add-liters.pipe';
@@ -24,7 +23,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './auth/auth.guard';
-import { CanComponentDeactivateGuard } from './can-component-deactivate.guard';
 import { SortPipe } from './pipes/sort.pipe';
 
 import {MatIconModule} from '@angular/material/icon';
@@ -33,7 +31,8 @@ const routes:Routes=[
   {path:'home',component:HomepageComponent},
   {path:'addForm',component:AddTankbeurtFormComponent,canActivate:[AuthGuard]},
   {path:'overview',component:TankbeurtListPageComponent,canActivate:[AuthGuard]},
-  {path: 'editForm/:id',component:EditTankbeurtFormComponent,canDeactivate:[CanComponentDeactivateGuard],canActivate:[AuthGuard]},
+ // {path: 'editForm/:id',component:EditTankbeurtFormComponent,canDeactivate:[CanComponentDeactivateGuard],canActivate:[AuthGuard,AdminGuard],},
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),canActivate:[AuthGuard]},
   {path: '**', redirectTo: '/home'}
   
 ]
@@ -45,7 +44,6 @@ const routes:Routes=[
     MainMenuComponent,
     AddTankbeurtFormComponent,
     TankBeurtListComponent,
-    EditTankbeurtFormComponent,
     AddEuroPipe,
     AddKmPipe,
     AddLitersPipe,

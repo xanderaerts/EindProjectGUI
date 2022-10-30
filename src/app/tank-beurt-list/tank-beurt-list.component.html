@@ -13,10 +13,13 @@
                 <th class="p-3 text-sm font-semibold tracking-wide text-left" (click)="changeSort('km')">Km stand <mat-icon>filter_list</mat-icon></th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Gem L/100km</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Km/tankbeurt</th>
+                <ng-container *ngIf="isAdmin()">
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Edit</th>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">Delete</th>
+            </ng-container>
             </tr>
         </thead>
+
         <tbody>
             <tr *ngFor='let tb of tankbeurten | sortPipe:sortType:order let i = index' class="border-2 rounded-lg hover:bg-gray-200 w-full">
       <!-- <td class="p-3">
@@ -41,15 +44,17 @@
         <td class="p-3">
             {{calcKm(i) | addKm}}
         </td>
-        <td class="p-3">
-            <a routerLink="/editForm/{{tb!.id}}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></a>
-        </td>
-        <td class="p-3">
+        <ng-container *ngIf="isAdmin()">
+            <td class="p-3">
+                <a routerLink="/admin/adminFuncs/editForm/{{tb!.id}}"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></a>
+            </td>
+            <td class="p-3">
 
-        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-        (click)="onDeleteClick(tb!.id)">Delete</button>
-        </td>   
-            </tr>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            (click)="onDeleteClick(tb!.id)">Delete</button>
+            </td>   
+        </ng-container>
+    </tr>
         </tbody>
     </table>
 </div>

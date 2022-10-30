@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TankBeurt } from '../tankbeurt.model';
+import { TankBeurt } from '../models/tankbeurt.model';
 import { TankBeurtenService } from '../services/tank-beurten.service';
 import { DataService } from '../services/data.service';
+import { AuthService } from '../auth/auth.service';
+import { map } from 'rxjs';
+import { Admin } from '../models/admin.model';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-tank-beurt-list',
@@ -15,7 +19,7 @@ export class TankBeurtListComponent implements OnInit {
   sortType: string = "datum";
   order: boolean = true;
   
-  constructor(private dataservice : DataService) {}
+  constructor(private dataservice : DataService,private authservice : AuthService) {}
 
   onDeleteClick(id: string){
 
@@ -74,7 +78,6 @@ export class TankBeurtListComponent implements OnInit {
     this.dataservice.getList().subscribe(
       (response : TankBeurt[]) => {
         this.tankbeurten = response;
-        //this.tankbeurten.sort((x,y) => {return new Date(x.date) < new Date(y.date) ? 1 : -1})
       },
       (error) => console.log("error:",error));
   }
@@ -82,6 +85,12 @@ export class TankBeurtListComponent implements OnInit {
   changeSort(sortType : string){
     this.sortType = sortType;
     this.order = !this.order;
+  }
+
+  isAdmin(){
+    var test =  this.authservice.isAdmin();
+    console.log("isAdminComp",test);
+    return test;
   }
 
 

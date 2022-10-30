@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CanComponentDeactivate } from '../can-component-deactivate.guard';
-import { DataService } from '../services/data.service';
-import { TankBeurtenService } from '../services/tank-beurten.service';
-import { TankBeurt } from '../tankbeurt.model';
+import { CanComponentDeactivate } from '../../can-component-deactivate.guard';
+import { DataService } from '../../services/data.service';
+import { TankBeurtenService } from '../../services/tank-beurten.service';
+import { TankBeurt } from '../../models/tankbeurt.model';
+import { NgForm } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-edit-tankbeurt-form',

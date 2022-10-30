@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { collectionData, deleteDoc, Firestore, updateDoc,docData,collection, CollectionReference,addDoc, DocumentReference,doc} from '@angular/fire/firestore';
-import { TankBeurt } from '../tankbeurt.model';
-import { catchError, from,map, throwError } from 'rxjs';
+import { TankBeurt } from '../models/tankbeurt.model';
+import { Admin } from '../models/admin.model';
+import { catchError, from, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
   constructor(private db: Firestore) { }
-
 
   getList(){
      return collectionData<TankBeurt>(
@@ -41,5 +41,13 @@ export class DataService {
   getTankbeurt(id:string){
     return docData<TankBeurt>(
       doc(this.db,'/tankbeurten/'+id) as DocumentReference<TankBeurt>);
+  }
+
+  getAdmin(uid : string | null){
+    var test = docData<Admin>(
+      doc(this.db,'/administrators/' + uid) as DocumentReference<Admin>)
+
+      console.log("object uit firebase",test);
+      return test;
   }
 }

@@ -1,15 +1,28 @@
 import { Injectable } from '@angular/core';
-import {CanActivate, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {Auth, createUserWithEmailAndPassword,signInWithEmailAndPassword} from '@angular/fire/auth'
+import { DataService } from '../services/data.service';
+import { Admin } from '../models/admin.model';
+import { map,Observable } from 'rxjs';
+import { UrlTree,ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private router : Router, private auth:Auth) { }
+  constructor(private router : Router, private auth:Auth,private dataservice : DataService) { }
 
   token : string | null = null ;
+
+  getUid(){
+    if(this.auth.currentUser){
+      return this.auth.currentUser.uid;
+    }
+    else{
+      return null;
+    }
+  }
 
   signup(email: string, passwd:string) : Promise<string> {
     return createUserWithEmailAndPassword(this.auth,email,passwd)
@@ -53,6 +66,14 @@ export class AuthService {
     return this.token != null;
   }
 
-
-
+  isAdmin() : Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree{
+    return this.dataservice.getAdmin(this.getUid()
+      ).pipe(map(
+          (admin:Admin) => {
+            if(admin){console.log("hey nu kom ik hier");return true}
+            else {return false}
+          }
+    ))
 }
+}
+

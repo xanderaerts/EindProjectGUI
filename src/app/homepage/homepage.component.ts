@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TankBeurtenService } from '../services/tank-beurten.service';
-import { TankBeurt } from '../tankbeurt.model'
+import { TankBeurt } from '../models/tankbeurt.model'
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';

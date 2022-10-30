@@ -22,7 +22,9 @@ src/environments/environment.ts
 src/environments/environment.prod.ts
 
 .firebaserc
+.firebase/
 
+notes.md
 
 
 .DS_STORE

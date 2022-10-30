@@ -18,4 +18,8 @@ export class MainMenuComponent implements OnInit {
     this.authservice.logout();
   }
 
+  isLoggedin() : boolean{
+    return this.authservice.isLoggedIn();
+  }
+
 }

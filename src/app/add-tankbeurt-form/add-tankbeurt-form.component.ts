@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TankBeurtenService } from '../services/tank-beurten.service';
-import { TankBeurt } from '../tankbeurt.model';
+import { TankBeurt } from '../models/tankbeurt.model';
 
 import { DataService } from '../services/data.service';
 
