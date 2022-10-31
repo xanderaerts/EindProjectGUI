@@ -3,6 +3,7 @@ import { collectionData, deleteDoc, Firestore, updateDoc,docData,collection, Col
 import { TankBeurt } from '../models/tankbeurt.model';
 import { Admin } from '../models/admin.model';
 import { catchError, from, throwError } from 'rxjs';
+import { query,where } from '@firebase/firestore';
 @Injectable({
   providedIn: 'root'
 })
@@ -44,10 +45,7 @@ export class DataService {
   }
 
   getAdmin(uid : string | null){
-    var test = docData<Admin>(
+   return docData<Admin>(
       doc(this.db,'/administrators/' + uid) as DocumentReference<Admin>)
-
-      console.log("object uit firebase",test);
-      return test;
   }
 }

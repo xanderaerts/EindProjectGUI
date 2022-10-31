@@ -5,6 +5,7 @@ import { DataService } from '../services/data.service';
 import { Admin } from '../models/admin.model';
 import { map,Observable } from 'rxjs';
 import { UrlTree,ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import { take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AuthService {
   constructor(private router : Router, private auth:Auth,private dataservice : DataService) { }
 
   token : string | null = null ;
+  adminState: boolean = false;
 
   getUid(){
     if(this.auth.currentUser){
@@ -66,14 +68,16 @@ export class AuthService {
     return this.token != null;
   }
 
-  isAdmin() : Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree{
+  isAdmin(){
     return this.dataservice.getAdmin(this.getUid()
-      ).pipe(map(
+      ).pipe(
+        take(1),
+        map(
           (admin:Admin) => {
             if(admin){console.log("hey nu kom ik hier");return true}
             else {return false}
           }
-    ))
-}
+        ))
+  }
 }
 

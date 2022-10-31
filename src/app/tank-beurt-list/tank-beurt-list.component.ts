@@ -18,8 +18,9 @@ export class TankBeurtListComponent implements OnInit {
   tankbeurten : TankBeurt[] = [];
   sortType: string = "datum";
   order: boolean = true;
+  adminState:boolean = false;
   
-  constructor(private dataservice : DataService,private authservice : AuthService) {}
+  constructor(private dataservice : DataService,public authservice : AuthService) {}
 
   onDeleteClick(id: string){
 
@@ -88,15 +89,19 @@ export class TankBeurtListComponent implements OnInit {
   }
 
   isAdmin(){
-    var test =  this.authservice.isAdmin();
-    console.log("isAdminComp",test);
-    return test;
+    return this.authservice.isAdmin().subscribe(
+      (resp: boolean) => {
+        console.log("result",resp);
+        this.adminState = resp;
+      }
+    )
   }
 
 
 
   ngOnInit(): void {
     this.getTankbeurten();
+    this.isAdmin();
   }
 
 }
