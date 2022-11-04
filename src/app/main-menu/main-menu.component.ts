@@ -13,7 +13,7 @@ export class MainMenuComponent implements OnInit,OnDestroy {
 
   constructor(public authservice: AuthService, private router: Router,private storage:Storage) { 
     const pr = ref(storage,'img/car.png');
-      getDownloadURL(pr).then((url:string)=>{console.log(url);this.imgUrl = url;})
+      getDownloadURL(pr).then((url:string)=>{this.imgUrl = url;})
   }
 
   isLogged: boolean = false;
