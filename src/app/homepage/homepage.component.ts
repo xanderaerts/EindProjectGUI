@@ -22,8 +22,7 @@ export class HomepageComponent implements OnInit {
     this.calcTotConsumpions();
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   calcTotConsumpions(){
     let tankbeurten : TankBeurt[] = [];
@@ -43,7 +42,6 @@ export class HomepageComponent implements OnInit {
   }
 
   calcTotAvg(){
-    
     var gem = (this.totLiters) * 100 /this.totKm;
     return Math.round((gem + Number.EPSILON)*100 ) / 100 
   }

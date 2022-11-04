@@ -1,4 +1,3 @@
-import { ContentObserver } from '@angular/cdk/observers';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
@@ -12,7 +11,7 @@ import {Router} from '@angular/router';
 export class SignupComponent implements OnInit {
 
   signupForm = new FormGroup({
-    email : new FormControl(null,[Validators.required,Validators.email]),
+    email : new FormControl(null,[Validators.required,Validators.email],[this.checkDubbleEmail.bind(this)]),
     password : new FormControl(null,[Validators.required,Validators.minLength(6)]),
     passwordConfirm : new FormControl(null,[Validators.required,this.validPasswords()])
   });
@@ -25,7 +24,7 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(email, pswd).then((res) => {
       if(res == 'succes'){
-        this.router.navigate(['home']);
+        this.router.navigate(['login']);
       }else{
         alert(res);
       }
@@ -42,11 +41,28 @@ export class SignupComponent implements OnInit {
       let pswdC = control.root.get('passwordConfirm')?.value;
       if(pswd && pswdC){
         if(pswd != pswdC){
-          return {passwordMismatch : true};
+          return {passwordMisMatch:true};
         }
       }
       return null;
     }
   }
 
+  checkDubbleEmail(control : AbstractControl): Promise<ValidationErrors | null> {
+    return new Promise((resolve) => {
+      if(control.hasError('email')){
+        resolve(null);
+        null;
+      }
+      this.authService.emailSignInCheck(control.value).then(resp => {
+        if(resp.length>0){
+          resolve({'emailInUse' : true});
+        }
+        resolve(null);
+      })
+      .catch(() => {resolve({'email' : true}
+      )})
+    })
+  }
+  
 }

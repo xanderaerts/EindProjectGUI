@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {Auth, createUserWithEmailAndPassword,signInWithEmailAndPassword} from '@angular/fire/auth'
+import {Auth, createUserWithEmailAndPassword,fetchSignInMethodsForEmail,signInWithEmailAndPassword} from '@angular/fire/auth'
 import { DataService } from '../services/data.service';
 import { Admin } from '../models/admin.model';
-import { map,Observable } from 'rxjs';
-import { UrlTree,ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import { take } from 'rxjs';
+import { map,take,Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  emailUser = new Subject();
 
-  constructor(private router : Router, private auth:Auth,private dataservice : DataService) { }
+  activeUserEmail(mail : string){
+    this.emailUser.next(mail);
+  }
+
+  constructor(private router : Router, private auth:Auth,private dataservice : DataService) {
+    if(localStorage.getItem('token')){
+      this.token = localStorage.getItem('token');
+    }
+   }
 
   token : string | null = null ;
   adminState: boolean = false;
@@ -45,6 +52,7 @@ export class AuthService {
           (token : string) => {
             this.token = token;
             localStorage.setItem('token',token);
+            this.activeUserEmail(email);
             return true;
           }
         );
@@ -68,16 +76,23 @@ export class AuthService {
     return this.token != null;
   }
 
+
   isAdmin(){
     return this.dataservice.getAdmin(this.getUid()
       ).pipe(
         take(1),
         map(
           (admin:Admin) => {
-            if(admin){console.log("hey nu kom ik hier");return true}
+            if(admin){;return true}
             else {return false}
           }
-        ))
+    ))
   }
+
+  emailSignInCheck(email: string) : Promise<string[]>{
+    return fetchSignInMethodsForEmail(this.auth,email);
+  }
+
+
 }
 

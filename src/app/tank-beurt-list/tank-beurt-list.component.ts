@@ -3,9 +3,6 @@ import { TankBeurt } from '../models/tankbeurt.model';
 import { TankBeurtenService } from '../services/tank-beurten.service';
 import { DataService } from '../services/data.service';
 import { AuthService } from '../auth/auth.service';
-import { map } from 'rxjs';
-import { Admin } from '../models/admin.model';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-tank-beurt-list',
@@ -96,9 +93,7 @@ export class TankBeurtListComponent implements OnInit {
       }
     )
   }
-
-
-
+ 
   ngOnInit(): void {
     this.getTankbeurten();
     this.isAdmin();

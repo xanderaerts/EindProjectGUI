@@ -18,13 +18,7 @@ export class AdminGuard implements CanActivate,CanLoad {
 
 
   canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.dataservice.getAdmin(this.authservice.getUid()
-      ).pipe(map(
-          (admin:Admin) => {
-            if(admin){console.log("hey nu kom ik hier");return true}
-            else {return false}
-          }
-        ))
+    return this.authservice.isAdmin();
 
     }
 

@@ -26,14 +26,15 @@ import { AuthGuard } from './auth/auth.guard';
 import { SortPipe } from './pipes/sort.pipe';
 
 import {MatIconModule} from '@angular/material/icon';
+import { ListStyleDirective } from './list-style.directive';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 const routes:Routes=[
-  {path:'home',component:HomepageComponent},
+  {path:'home',component:HomepageComponent,canActivate:[AuthGuard]},
   {path:'addForm',component:AddTankbeurtFormComponent,canActivate:[AuthGuard]},
   {path:'overview',component:TankbeurtListPageComponent,canActivate:[AuthGuard]},
- // {path: 'editForm/:id',component:EditTankbeurtFormComponent,canDeactivate:[CanComponentDeactivateGuard],canActivate:[AuthGuard,AdminGuard],},
   {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),canActivate:[AuthGuard]},
-  {path: '**', redirectTo: '/home'}
+  {path: '**', redirectTo: '/login'}
   
 ]
 
@@ -49,6 +50,7 @@ const routes:Routes=[
     AddLitersPipe,
     TankbeurtListPageComponent,
     SortPipe,
+    ListStyleDirective,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ const routes:Routes=[
     MatIconModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideStorage(()=> getStorage()),
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
