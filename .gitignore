@@ -24,10 +24,10 @@ src/environments/environment.prod.ts
 
 .firebaserc
 .firebase/
-
 notes.md
 testingPlan.md
 testResults.md
+admin.txt
 
 
 .DS_STORE

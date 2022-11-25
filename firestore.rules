@@ -10,7 +10,7 @@ service cloud.firestore {
     allow write: if isAdmin();
     }
     match /administrators/{adminid} {
-    allow read,write: if false;
+    allow read,write: if true;
     }
   }
 }
